@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37614.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinCore", "FinCore.csproj", "{205BFE49-4F4F-4D06-84AF-547398C71BE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{205BFE49-4F4F-4D06-84AF-547398C71BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205BFE49-4F4F-4D06-84AF-547398C71BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205BFE49-4F4F-4D06-84AF-547398C71BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205BFE49-4F4F-4D06-84AF-547398C71BE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5CAE0B0-6325-4A65-A0AB-05B2045A21C7}
+	EndGlobalSection
+EndGlobal
