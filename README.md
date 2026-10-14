@@ -352,10 +352,12 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## 👤 Author
 
-**<Your Name>**
-Graduation Project, <Your University / Faculty>, <Year>
+**<Mohamed <a>Gamil</a> >**
+**<Momen <a>Hamam</a> **
+FinTech 2026/2027, ALL CopyRight are saved
 
-[LinkedIn](https://linkedin.com/in/<your-handle>) · [GitHub](https://github.com/<your-username>) · <your.email@example.com>
+[LinkedIn](https://linkedin.com/in/<your-handle>) · [GitHub](https://github.com/<your-username>) · <mohamed.gamil.khalaf1@gmail.com>
+
 
 <div align="center">
 
