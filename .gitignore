@@ -55,3 +55,25 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.rsuser
+*.csproj.user
+
+# Local development settings and secrets
+appsettings.Development.json
+.env
+.env.*
+!.env.example
+
+# IDE and local tooling
+.idea/
+.vscode/
+
+# Build and test artifacts
+TestResults/
+coverage/
