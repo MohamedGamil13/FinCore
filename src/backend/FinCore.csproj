@@ -10,4 +10,22 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="Infrastructure\Persistance\Persistance.csproj" />
+    <ProjectReference Include="Infrastructure\Presentation\Presentation.csproj" />
+  </ItemGroup>
+	<ItemGroup>
+	
+		<Compile Remove="Core\**" />
+		<Compile Remove="Infrastructure\**" />
+		<Compile Remove="Shared\**" />
+
+		<EmbeddedResource Remove="Core\**" />
+		<EmbeddedResource Remove="Infrastructure\**" />
+		<EmbeddedResource Remove="Shared\**" />
+
+		<None Remove="Core\**" />
+		<None Remove="Infrastructure\**" />
+		<None Remove="Shared\**" />
+	</ItemGroup>
 </Project>
