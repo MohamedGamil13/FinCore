@@ -15,5 +15,11 @@
 		<ProjectReference Include="..\Infrastructure\Persistance\Persistance.csproj" />
 		<ProjectReference Include="..\Infrastructure\Presentation\Presentation.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.13">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>
