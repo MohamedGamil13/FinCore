@@ -8,6 +8,6 @@
     <Project Path="Infrastructure/Persistance/Persistance.csproj" Id="adf40ac7-94a8-4304-8f36-09f5a8003065" />
     <Project Path="Infrastructure/Presentation/Presentation.csproj" Id="e20347e3-3300-4e41-87a1-f7a8dbeefe2c" />
   </Folder>
-  <Project Path="FinCore.csproj" />
+  <Project Path="FinCore.Api/FinCore.csproj" />
   <Project Path="Shared/Shared.csproj" Id="774b3baa-5dc0-4c15-b171-c65ac7a1b15c" />
 </Solution>
