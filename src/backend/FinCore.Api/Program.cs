@@ -1,11 +1,11 @@
 using FinCore.Extensions;
 using Persistance.Extensions;
-
+using Service.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddWebApi().AddPresentationServices().AddInfrastructure(builder.Configuration);
+builder.Services.AddWebApi().AddPresentationServices().AddInfrastructure(builder.Configuration).AddApplicationServices(builder.Configuration);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
 
