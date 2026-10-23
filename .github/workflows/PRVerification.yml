@@ -1,0 +1,88 @@
+name: PR Verification Guard
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches:
+      - main
+      - dev
+
+jobs:
+  verify-pr-requirements:
+    name: Verify Issue, Template & CodeRabbit
+    runs-on: ubuntu-latest
+
+    steps:
+     
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+ 
+      - name: Verify Linked Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || '';
+            const issuePattern = /(closes|fixes|resolves)\s+#\d+/i;
+            
+            if (!issuePattern.test(body)) {
+              core.setFailed("PR body must reference a closing issue (e.g., 'Closes #123' or 'Fixes #45').");
+            } else {
+              console.log("Linked issue reference found in PR description.");
+            }
+    
+   
+      - name: Verify PR Template Requirements
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || '';
+            
+            const requiredSections = ['Context', 'Goal', 'Tasks'];
+            let missingSections = [];
+
+            requiredSections.forEach(section => {
+              if (!body.toLowerCase().includes(section.toLowerCase())) {
+                missingSections.push(section);
+              }
+            });
+
+            if (missingSections.length > 0) {
+              core.setFailed(`PR Description is missing required template sections: ${missingSections.join(', ')}`);
+            } else {
+              console.log("PR Template structure is valid.");
+            }
+
+
+      - name: Verify CodeRabbit Review Status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            
+
+            const reviews = await github.rest.pulls.listReviews({
+              owner,
+              repo,
+              pull_number: number,
+            });
+
+
+            const coderabbitReviews = reviews.data.filter(
+              r => r.user && r.user.login.includes('coderabbitai')
+            );
+
+            if (coderabbitReviews.length === 0) {
+              core.setFailed(" Waiting for CodeRabbit AI to review this PR...");
+              return;
+            }
+
+            const latestReview = coderabbitReviews[coderabbitReviews.length - 1];
+
+            if (latestReview.state === 'CHANGES_REQUESTED') {
+              core.setFailed(" CodeRabbit requested changes on this PR. Fix the issues before merging.");
+            } else if (latestReview.state === 'APPROVED' || latestReview.state === 'COMMENTED') {
+              console.log(" CodeRabbit review completed successfully.");
+            } else {
+              core.setFailed(` CodeRabbit review state is: ${latestReview.state}`);
+            }
