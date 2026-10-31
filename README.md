@@ -1,6 +1,6 @@
 <div align="center">
 
-# 💳 FinCore
+# FinCore
 
 **A production-grade payment processing, double-entry ledger and reconciliation platform.**
 
@@ -18,7 +18,7 @@ Built with C#, ASP.NET Core, EF Core and SQL Server.
 
 ---
 
-## 📖 Overview
+## Overview
 
 FinCore is the engine that sits behind products like **Paymob** or **Stripe**. It accepts payment requests from merchants, communicates with external payment providers, records every movement of money in an **immutable double-entry ledger**, and proves that its books agree with the provider's and the bank's through an automated **reconciliation engine**.
 
@@ -30,11 +30,11 @@ The platform is designed around three promises:
 | **Never create money** | Balanced journal entries, DB constraints, append-only ledger with hash chain |
 | **Never charge twice** | Idempotency keys, provider-side idempotency, deduplicated webhooks |
 
-> 🎓 FinCore is also a graduation project: every design decision is documented in [`docs/adr`](docs/adr) and the build is organised into 10 incremental phases (see [Roadmap](#-implementation-roadmap)).
+>  FinCore is also a graduation project: every design decision is documented in [`docs/adr`](docs/adr) and the build is organised into 10 incremental phases (see [Roadmap](#-implementation-roadmap)).
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 - **Payment API** with merchant API-key authentication, cursor pagination and RFC 7807 error responses
 - **Idempotency** on every mutating endpoint (insert-first pattern, request fingerprinting, safe under parallel retries)
@@ -52,7 +52,7 @@ The platform is designed around three promises:
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
 FinCore is a **modular monolith** with clean layering, so module boundaries stay clear without the operational cost of microservices.
 
@@ -118,7 +118,7 @@ FinCore/
 
 ---
 
-## 💰 How the Ledger Works
+## How the Ledger Works
 
 A captured payment of **250.00 EGP** with a 2.5% merchant fee produces one balanced journal entry:
 
@@ -133,7 +133,7 @@ Customer money is a **liability** (owed to the merchant), not revenue; only the 
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -260,11 +260,11 @@ FinCore is built in ten incremental phases. Each phase has a strict Definition o
 | 9 | Security & Observability | RBAC, audit, rate limits, metrics, tracing | ⬜ |
 | 10 | Docker, CI/CD & Production Readiness | Containers, pipelines, load and chaos tests | ⬜ |
 
-> ✅ Done · 🚧 In progress · ⬜ Planned. Update this table as phases are completed.
+>  Done ·  In progress ·  Planned. Update this table as phases are completed.
 
 ---
 
-## 🧪 Testing Strategy
+##  Testing Strategy
 
 ```bash
 dotnet test                                   # all tests
@@ -284,7 +284,7 @@ k6 run deploy/k6/payments-load.js             # load test
 
 ---
 
-## 🔐 Security
+## Security
 
 - API keys stored as hashes only; shown once at creation
 - Tenant isolation through EF Core global query filters (`MerchantId`); foreign resources return `404`
@@ -298,7 +298,7 @@ Found a vulnerability? Please do **not** open a public issue. See [SECURITY.md](
 
 ---
 
-## 📊 Observability
+## Observability
 
 - **Logs:** Serilog (structured JSON) → Seq, with correlation IDs on every line
 - **Metrics:** OpenTelemetry → Prometheus → Grafana (technical and business KPIs such as outbox backlog, stuck payments, unreconciled amount, ledger integrity failures)
@@ -307,7 +307,7 @@ Found a vulnerability? Please do **not** open a public issue. See [SECURITY.md](
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -323,7 +323,7 @@ Found a vulnerability? Please do **not** open a public issue. See [SECURITY.md](
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - [Technical Blueprint (10 phases)](docs/blueprint.md): concepts, endpoints, schemas and checklists per phase
 - [Architecture Decision Records](docs/adr)
@@ -332,7 +332,7 @@ Found a vulnerability? Please do **not** open a public issue. See [SECURITY.md](
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues and feature ideas are welcome.
 
@@ -344,13 +344,13 @@ Contributions, issues and feature ideas are welcome.
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-## 👤 Author
+## Author
 
 **<Mohamed <a>Gamil</a> >**
 **<Momen <a>Hamam</a> **
